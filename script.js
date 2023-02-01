@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   // Part 6
 
   const li = document.createElement('li')
-  li.textContent = 'CITY'
+  li.textContent = 'NEW CITY'
 
   const ul = document.querySelector("#past-races")
     ul.appendChild(li)
@@ -64,6 +64,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   const div = document.createElement('div')
 
   div.className = 'blog-post'
+  
 
   document.body.appendChild(div)
 
@@ -72,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
   const p = document.createElement('p')
-  p.textContent = 'Lorem'
+  p.textContent = 'I had good food in this city'
 
   
   div.appendChild(h2)
@@ -80,14 +81,32 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   console.dir(div)
   console.log(document.querySelectorAll("h1"))
-  console.log(document.querySelectorAll("h2"))
+  console.dir(document.querySelectorAll("h2"))
 
   // Part 8
+  let abc = document.querySelector('#quote-title')
+  abc.addEventListener('click', myFunc)
 
+    function myFunc() {
+      document.querySelector('#quote-of-the-day').textContent = 
+    `"${quotes[Math.floor(Math.random() * quotes.length)]}"`;
+  };
 
   // Part 9
 
+const list = document.querySelectorAll('.blog-post')
 
+list.forEach((element) => {
+  element.addEventListener('mouseout', myFunc1)
+  element.addEventListener('mouseenter', myFunc2)
+});
 
+function myFunc1() {
+  list.className = '.purple'
+};
+
+function myFunc2() {
+  list.className = '.red'
+};
 
 });
